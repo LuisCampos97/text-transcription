@@ -3,9 +3,9 @@ import type { TranscribeParams, Transcript } from "assemblyai";
 import 'dotenv/config';
 import * as fs from 'fs';
 import type { Transcription } from './models/transcription';
-import * as PizZip from 'pizzip';
-import * as Docxtemplater from 'docxtemplater';
 import * as path from 'path';
+import PizZip from "pizzip";
+import Docxtemplater from "docxtemplater";
 
 /**
  * Transcribe text from audio file

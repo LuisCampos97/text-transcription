@@ -2,10 +2,10 @@ import { AssemblyAI } from "assemblyai";
 import type { TranscribeParams, Transcript } from "assemblyai";
 import 'dotenv/config';
 import * as fs from 'fs';
-import type { Transcription } from './models/transcription';
 import * as path from 'path';
 import PizZip from "pizzip";
 import Docxtemplater from "docxtemplater";
+import { Transcription } from "./models/transcription";
 
 /**
  * Transcribe text from audio file
@@ -13,7 +13,7 @@ import Docxtemplater from "docxtemplater";
  * @param inputAudioFile - Audio file to transcribe text (.mp3, .wav, etc...)
  * @param outputDocxPath - Path for the genereated docx file (Ex.:  "C:\Users\user\Desktop\generated-doc.docx")
  */
-async function transcribeTextFromAudio(inputAudioFile: string, outputDocxPath: string, witnessName?: string): Promise<void> {
+export async function transcribeTextFromAudio(inputAudioFile: string, outputDocxPath: string): Promise<void> {
     if (!process.env.ASSEMBLY_API_KEY) {
         console.error("Please set the ASSEMBLY_API_KEY environment variable");
         return;
@@ -95,16 +95,17 @@ function generateDocxFile(transcriptions: Transcription[], inputAudioName: strin
     fs.writeFileSync(outputDocxPath, buff);
 }
 
-const audioFileToTranscribe = process.argv[2];
-const outputDocxPath = process.argv[3];
-if (!audioFileToTranscribe) {
-    console.error("Please provide the audio file path as a parameter 1.");
-    process.exit(1);
-}
+// Main Program
+// const audioFileToTranscribe = process.argv[2];
+// const outputDocxPath = process.argv[3];
+// if (!audioFileToTranscribe) {
+//     console.error("Please provide the audio file path as a parameter 1.");
+//     process.exit(1);
+// }
 
-if (!outputDocxPath) {
-    console.error("Please provide the docx path to save as a parameter 2.");
-    process.exit(1);
-}
+// if (!outputDocxPath) {
+//     console.error("Please provide the docx path to save as a parameter 2.");
+//     process.exit(1);
+// }
 
-transcribeTextFromAudio(audioFileToTranscribe, outputDocxPath);
+// transcribeTextFromAudio(audioFileToTranscribe, outputDocxPath);

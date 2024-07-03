@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio Transcriber</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      button {
+        margin: 10px;
+        padding: 10px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Audio Transcriber</h1>
+    <div>
+      <button id="select-audio-file">Select Audio File</button>
+      <span id="audio-file-path"></span>
+    </div>
+    <div>
+      <button id="select-output-path">Select Output Path</button>
+      <span id="output-file-path"></span>
+    </div>
+    <div>
+      <button id="transcribe">Transcribe</button>
+    </div>
+    <div id="status"></div>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>
